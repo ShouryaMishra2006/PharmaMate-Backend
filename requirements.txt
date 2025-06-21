@@ -12,3 +12,4 @@ openai
 tiktoken
 langchain_community
 pandas
+torch
