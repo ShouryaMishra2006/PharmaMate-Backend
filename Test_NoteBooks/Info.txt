@@ -1,0 +1,7 @@
+All preprocessing , testing and Experiments for specialists and Treatments suggestion are done in these shared notebooks
+
+1) Creating Custom Dataset from Hugging Face Model 
+
+2) Using a Hybrid Approach :
+   i) First extracting symptoms from text using Spacy
+   ii) Suggesting Specialists and Treatments from Symptoms using ClinicalBERT

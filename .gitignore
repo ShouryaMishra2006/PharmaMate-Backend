@@ -1,0 +1,4 @@
+.env
+__pycache__/
+/services/clinicalbert_model
+/Hybrid-Pharma-Model

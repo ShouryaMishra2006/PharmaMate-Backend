@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pytesseract
+numpy
+opencv-python
+python-dotenv
+pillow
+requests
+bs4
+langchain
+openai
+tiktoken
