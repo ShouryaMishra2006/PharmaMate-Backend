@@ -6,10 +6,12 @@ opencv-python
 python-dotenv
 pillow
 requests
-bs4
+beautifulsoup4
 langchain
 openai
 tiktoken
-langchain_community
-pandas
 torch
+langchain-community
+pandas
+transformers
+spacy
