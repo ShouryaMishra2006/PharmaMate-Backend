@@ -12,7 +12,7 @@ MODEL_REPO = "shouryamishra55/Hybrid-Pharma-Model"
 tokenizer = BertTokenizer.from_pretrained(MODEL_REPO)
 model = BertForSequenceClassification.from_pretrained(MODEL_REPO)
 
-spacy_model_path = os.path.join(BASE_DIR, 'spacy_ner_model')
+spacy_model_path = os.path.join(BASE_DIR, 'hybrid_model/spacy_ner_model')
 nlp = spacy.load(spacy_model_path)
 specialists = specialist_df['Specialist'].unique()
 id2specialist = {i: s for i, s in enumerate(specialists)}
