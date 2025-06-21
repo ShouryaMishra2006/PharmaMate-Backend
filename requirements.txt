@@ -8,10 +8,11 @@ pillow
 requests
 beautifulsoup4
 langchain
+langchain-community
 openai
 tiktoken
 torch
-langchain-community
 pandas
 transformers
 spacy
+protobuf
