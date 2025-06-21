@@ -11,3 +11,4 @@ langchain
 openai
 tiktoken
 langchain_community
+pandas
