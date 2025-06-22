@@ -73,6 +73,10 @@ def identify_medicines(extracted_text, medicine_list):
     extracted_text_lower = extracted_text.lower()
     return [med for med in medicine_list if re.search(r'\b' + re.escape(med) + r'\b', extracted_text_lower)]
 
+@app.get("/")
+def read_root():
+    return {"message": "PharmaMate Backend is running!"}
+
 @app.post("/upload")
 async def upload_image(image: UploadFile = File(...)):
     try:
