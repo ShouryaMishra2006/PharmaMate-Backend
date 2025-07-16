@@ -54,8 +54,9 @@ agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION
 class MedicineRequest(BaseModel):
     extracted_text: str
 
-def get_medicine_list(limit=100):
-    url = f"https://api.fda.gov/drug/label.json?limit={limit}"
+def get_medicine_list(query_text: str = "", limit=100):
+    search_text = query_text.replace(" ", "+")
+    url = f"https://api.fda.gov/drug/label.json?search=indications_and_usage:{search_text}&limit={limit}"
     try:
         response = requests.get(url)
         response.raise_for_status()
@@ -68,6 +69,7 @@ def get_medicine_list(limit=100):
     except Exception as e:
         print(f"Error fetching medicines: {e}")
         return []
+
 
 def identify_medicines(extracted_text, medicine_list):
     extracted_text_lower = extracted_text.lower()
@@ -93,7 +95,7 @@ async def upload_image(image: UploadFile = File(...)):
             parts = response.split("Treatment:")
             specialist = parts[0].replace("Specialist:", "").strip()
             treatment = parts[1].strip()
-        medicine_list = get_medicine_list(limit=100)
+        medicine_list = get_medicine_list(extracted_text, limit=100)
         matched_medicines = identify_medicines(extracted_text, medicine_list)
         return {"extracted_text": extracted_text, "specialist": specialist, "treatment":treatment,"matched_medicines": matched_medicines}
     except Exception as e:
